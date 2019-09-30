@@ -10,7 +10,9 @@ const Todo = props =>  {
              onClick = {() => props.toggleItem(props.item.id)}
             >
             {/* item comes from mapping of props on todolist */}
-            <p>{props.item.task}</p>
+            <div className="todoWrap">
+            <p className="task">{props.item.task}</p>
+            </div>
             </div>
         )
 }

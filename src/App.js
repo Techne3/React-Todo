@@ -66,16 +66,26 @@ class App extends React.Component {
    })
  }
 
+ search = props => {
+   this.setState({
+     todo: this.state.todo.filter(item => 
+      item.task.toLowerCase().includes(props)
+      )
+   })
+ }
+
 
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <h2 className="welcome">Welcome to your Todo App!</h2>
         <TodoList  todos={this.state.todo} 
         toggleItem={this.toggleItem}
         clearCompleted={this.clearCompleted}
         />
-        <TodoForm addItem={this.addItem}/>
+        <TodoForm addItem={this.addItem}
+        search={this.search}
+        />
       </div>
     );
   }
