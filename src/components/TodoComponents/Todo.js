@@ -2,12 +2,17 @@ import React from 'react';
 
 
 
-class Todo extends React.Component {
-    render( ) {
+const Todo = props =>  {
+ 
         return (
-            <ul>{this.props.needDone}</ul>
+            <div
+            className={`item${props.item.completed ? ' completed' : ''}`}
+             onClick = {() => props.toggleItem(props.item.id)}
+            >
+            {/* item comes from mapping of props on todolist */}
+            <p>{props.item.task}</p>
+            </div>
         )
-    }
 }
 
 export default Todo;
